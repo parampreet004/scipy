@@ -44,7 +44,23 @@ matrix:
         # sdist (uses pip build isolation), to check that the version we
         # specify in pyproject.toml (will be older than --pre --upgrade) works
         - USE_SDIST=1
+    - arch: arm64
+      python: 3.7
+      env:
+        - TESTMODE=fast
+        - COVERAGE=
+        - NUMPYSPEC="--pre --upgrade --timeout=60 -f $PRE_WHEELS numpy"
+        # Need a test with most recent Python version where we build from an
+        # sdist (uses pip build isolation), to check that the version we
+        # specify in pyproject.toml (will be older than --pre --upgrade) works
+        - USE_SDIST=1
     - python: 3.7
+      env:
+        - TESTMODE=full
+        - COVERAGE="--coverage --gcov"
+        - NUMPYSPEC="numpy==1.15.4"
+    - arch: arm64
+      python: 3.7
       env:
         - TESTMODE=full
         - COVERAGE="--coverage --gcov"
