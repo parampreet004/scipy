@@ -45,6 +45,7 @@ matrix:
         # specify in pyproject.toml (will be older than --pre --upgrade) works
         - USE_SDIST=1
     - arch: arm64
+      dist: bionic
       python: 3.7
       env:
         - TESTMODE=fast
@@ -60,6 +61,7 @@ matrix:
         - COVERAGE="--coverage --gcov"
         - NUMPYSPEC="numpy==1.15.4"
     - arch: arm64
+      dist: bionic
       python: 3.7
       env:
         - TESTMODE=full
